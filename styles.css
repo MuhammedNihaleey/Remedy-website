@@ -270,6 +270,20 @@ section {
     box-shadow: var(--shadow);
 }
 
+.about-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.about-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
 /* Services Section */
 .services {
     background-color: var(--white);
@@ -720,5 +734,342 @@ section {
 
     .about-text h3 {
         font-size: 1.3rem;
+    }
+}
+/* ==================== ENQUIRY SYSTEM STYLES ==================== */
+
+/* Password Modal Styling */
+.password-modal-content {
+    max-width: 400px;
+    width: 90%;
+}
+
+.password-modal-text {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+.password-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.password-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.password-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 102, 204, 0.3);
+}
+
+.toggle-password-btn {
+    background-color: var(--light-bg);
+    border: 2px solid #ddd;
+    color: var(--primary-color);
+    padding: 10px 12px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 45px;
+    height: 45px;
+}
+
+.toggle-password-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.password-modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.password-modal-actions .btn {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 1rem;
+}
+
+/* ==================== ENQUIRY SYSTEM STYLES ==================== */
+
+/* Enquiry Form */
+.enquiry-form {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8f4ff 100%);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    flex: 1;
+}
+
+.enquiry-form h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 102, 204, 0.2);
+}
+
+.form-message {
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    font-weight: bold;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #25d366;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: bold;
+}
+
+.whatsapp-btn:hover {
+    background-color: #20ba5a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+/* Admin Inbox Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: auto;
+    padding: 0;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.inbox-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--light-bg);
+}
+
+.message-count {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.inbox-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.enquiry-item {
+    background: var(--light-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.enquiry-item:hover {
+    box-shadow: var(--shadow);
+    transform: translateX(5px);
+}
+
+.enquiry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.enquiry-header strong {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.enquiry-date {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.enquiry-email,
+.enquiry-subject,
+.enquiry-message {
+    margin: 8px 0;
+    font-size: 0.95rem;
+}
+
+.enquiry-message {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+.enquiry-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-delete {
+    background-color: #ff4444;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: bold;
+}
+
+.btn-delete:hover {
+    background-color: #cc0000;
+}
+
+/* Responsive design for enquiry form */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+    }
+
+    .enquiry-form {
+        order: 2;
+    }
+
+    .contact-info {
+        order: 1;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .enquiry-actions {
+        flex-direction: column;
+    }
+
+    .enquiry-actions button,
+    .enquiry-actions a {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .modal-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .close-btn {
+        align-self: flex-end;
     }
 }

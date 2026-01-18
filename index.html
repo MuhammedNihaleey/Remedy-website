@@ -6,6 +6,9 @@
     <title>Remedy Dental Clinic - Quality & Long-Lasting Services</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -21,8 +24,8 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#team">Team</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" onclick="openAdminInbox(); return false;"><i class="fas fa-inbox"></i> Admin Inbox</a></li>
                 </ul>
                 <div class="hamburger">
                     <span></span>
@@ -88,9 +91,7 @@
                     </ul>
                 </div>
                 <div class="about-image">
-                    <div class="placeholder-image">
-                        <i class="fas fa-clinic-medical"></i>
-                    </div>
+                    <img src="images/about.jpeg" alt="Remedy Dental Clinic" class="about-img">
                 </div>
             </div>
         </div>
@@ -198,72 +199,6 @@
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section id="team" class="team">
-        <div class="container">
-            <div class="section-header">
-                <h2>Meet Our Team</h2>
-                <p>Expert Professionals Dedicated to Your Smile</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-image">
-                        <div class="placeholder-avatar">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                    </div>
-                    <h3>Dr. Hafiz Muhammed</h3>
-                    <p class="role">Founder & Lead Dentist</p>
-                    <p class="bio">
-                        With over 15 years of experience in dentistry, Dr. Hafiz Muhammed is dedicated to providing 
-                        the highest quality dental care and creating beautiful, healthy smiles for his patients.
-                    </p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-image">
-                        <div class="placeholder-avatar">
-                            <i class="fas fa-user-nurse"></i>
-                        </div>
-                    </div>
-                    <h3>Dr. Sarah Khan</h3>
-                    <p class="role">Associate Dentist</p>
-                    <p class="bio">
-                        Specializing in cosmetic dentistry and orthodontics, Dr. Sarah brings a fresh perspective 
-                        and modern techniques to patient care.
-                    </p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-image">
-                        <div class="placeholder-avatar">
-                            <i class="fas fa-user-nurse"></i>
-                        </div>
-                    </div>
-                    <h3>Aisha Ahmed</h3>
-                    <p class="role">Dental Hygienist</p>
-                    <p class="bio">
-                        Passionate about preventive care, Aisha ensures every patient receives thorough cleanings 
-                        and personalized oral hygiene guidance.
-                    </p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -272,6 +207,16 @@
                 <p>We'd Love to Hear From You</p>
             </div>
             <div class="contact-content">
+                <div class="enquiry-form">
+                    <h3>Send Us An Enquiry</h3>
+                    <form id="enquiryForm" class="form-group">
+                        <input type="text" id="enquiryName" placeholder="Your Name" required>
+                        <input type="tel" id="enquiryPhone" placeholder="Your Mobile Number" required>
+                        <textarea id="enquiryMessage" placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Enquiry</button>
+                        <p id="formMessage" class="form-message"></p>
+                    </form>
+                </div>
                 <div class="contact-info">
                     <div class="info-item">
                         <div class="info-icon">
@@ -279,7 +224,7 @@
                         </div>
                         <div>
                             <h3>Location</h3>
-                            <p>123 Dental Street, Medical Plaza<br>Your City, State 12345</p>
+                            <p><a href="https://maps.app.goo.gl/xHNHiS5xbEfcxUNE9" target="_blank">View on Google Maps</a></p>
                         </div>
                     </div>
                     <div class="info-item">
@@ -288,7 +233,16 @@
                         </div>
                         <div>
                             <h3>Phone</h3>
-                            <p>+1 (555) 123-4567<br>Emergency: +1 (555) 987-6543</p>
+                            <p><a href="tel:+917025669944">+91 7025669944</a><br><a href="tel:+919633669944">+91 9633669944</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <p><a href="https://wa.me/917025669944" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a></p>
                         </div>
                     </div>
                     <div class="info-item">
@@ -314,6 +268,48 @@
         </div>
     </section>
 
+    <!-- Password Modal -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content password-modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-lock"></i> Admin Access</h2>
+                <button class="close-btn" onclick="closePasswordModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="password-modal-text">Enter the admin password to access the inbox</p>
+                <div class="password-input-group">
+                    <input type="password" id="adminPassword" placeholder="Enter password" class="password-input">
+                    <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility()">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="password-modal-actions">
+                    <button class="btn btn-primary" onclick="submitPassword()">Login</button>
+                    <button class="btn btn-secondary" onclick="closePasswordModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Inbox Modal -->
+    <div id="adminInboxModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Admin Inbox</h2>
+                <button class="close-btn" onclick="closeAdminInbox()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="inbox-actions">
+                    <button class="btn btn-secondary" onclick="clearAllEnquiries()">Clear All Messages</button>
+                    <span class="message-count">Total Messages: <strong id="messageCount">0</strong></span>
+                </div>
+                <div id="inboxList" class="inbox-list">
+                    <p>No enquiries yet</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -336,7 +332,7 @@
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://instagram.com/remedyhci" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -347,6 +343,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

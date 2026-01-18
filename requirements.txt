@@ -1,0 +1,8 @@
+# Firebase for backend database and authentication
+firebase-admin==6.2.0
+
+# Web server (optional - for local testing)
+# python -m http.server 8000
+
+# Note: Frontend (HTML/CSS/JS) doesn't need Python packages in production
+# This file is mainly for any Python backend services you might add
