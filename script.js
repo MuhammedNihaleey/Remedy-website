@@ -157,6 +157,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    // About Carousel Auto-slide
+    let aboutCarouselIndex = 0;
+    
+    function showCarouselSlide() {
+        const slides = document.querySelectorAll('.about-carousel .carousel-slide');
+        if (slides.length === 0) return;
+
+        // Hide all slides
+        slides.forEach(slide => {
+            slide.style.display = "none";
+            slide.classList.remove('active');
+        });
+
+        aboutCarouselIndex++;
+        if (aboutCarouselIndex > slides.length) { aboutCarouselIndex = 1; }
+
+        // Show the current slide
+        slides[aboutCarouselIndex - 1].style.display = "block";
+        slides[aboutCarouselIndex - 1].classList.add('active');
+
+        // Repeat every 3 seconds
+        setTimeout(showCarouselSlide, 3000); 
+    }
+
+    // Start the carousel
+    showCarouselSlide();
 });
 
 // Open admin inbox
@@ -317,3 +344,99 @@ window.submitPassword = submitPassword;
 window.togglePasswordVisibility = togglePasswordVisibility;
 window.deleteEnquiry = deleteEnquiry;
 window.clearAllEnquiries = clearAllEnquiries;
+
+// ==================== SLIDESHOW FUNCTIONS ====================
+// ==================== INFINITE CAROUSEL FUNCTIONS ====================
+let isTransitioning = false;
+
+function moveSlide(direction) {
+    if (isTransitioning) return; // Prevent clicking too fast
+    isTransitioning = true;
+
+    const track = document.getElementById('track');
+    const slides = Array.from(track.children);
+    const gap = 20; // Must match CSS gap
+    const slideWidth = slides[0].getBoundingClientRect().width + gap;
+
+    if (direction === 1) {
+        // MOVING FORWARD (Right)
+        // 1. Slide the track to the left
+        track.style.transition = 'transform 0.5s ease-in-out';
+        track.style.transform = `translateX(-${slideWidth}px)`;
+
+        // 2. After animation, move the first item to the end and reset
+        setTimeout(() => {
+            track.style.transition = 'none'; // Disable animation for instant swap
+            track.appendChild(track.firstElementChild); // Move first item to the back
+            track.style.transform = 'translateX(0)'; // Reset position
+            isTransitioning = false;
+        }, 500); // 500ms matches the CSS transition time
+
+    } else {
+        // MOVING BACKWARD (Left)
+        // 1. Move last item to front INSTANTLY (offset by negative width)
+        track.style.transition = 'none';
+        track.prepend(track.lastElementChild);
+        track.style.transform = `translateX(-${slideWidth}px)`;
+
+        // 2. Force a tiny delay so the browser registers the position change
+        setTimeout(() => {
+            track.style.transition = 'transform 0.5s ease-in-out';
+            track.style.transform = 'translateX(0)'; // Slide into view
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 500);
+        }, 10);
+    }
+}
+
+// Auto-slide every 3 seconds
+let autoSlideInterval = setInterval(() => {
+    moveSlide(1);
+}, 1000);
+
+// Pause on hover (Optional but recommended)
+const container = document.querySelector('.slideshow-container');
+if(container) {
+    container.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+    container.addEventListener('mouseleave', () => {
+        autoSlideInterval = setInterval(() => moveSlide(1), 3000);
+    });
+}
+
+// Expose to window for HTML onclick
+window.moveSlide = moveSlide;
+
+// ==================== ABOUT CAROUSEL FUNCTIONS ====================
+function initAboutCarousel() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    if (slides.length === 0) return;
+    
+    showCarouselSlide(0);
+    startCarousel();
+}
+
+function showCarouselSlide(n) {
+    const slides = document.querySelectorAll('.carousel-slide');
+    if (slides.length === 0) return;
+    
+    if (n >= slides.length) {
+        carouselIndex = 0;
+    }
+    if (n < 0) {
+        carouselIndex = slides.length - 1;
+    }
+    
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+    });
+    
+    slides[carouselIndex].classList.add('active');
+}
+
+function startCarousel() {
+    setInterval(() => {
+        carouselIndex++;
+        showCarouselSlide(carouselIndex);
+    }, 4000); // Change image every 4 seconds
+}

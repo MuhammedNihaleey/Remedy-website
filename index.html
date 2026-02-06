@@ -16,8 +16,7 @@
         <div class="container">
             <div class="nav-wrapper">
                 <div class="logo">
-                    <i class="fas fa-tooth"></i>
-                    <span>Remedy Dental</span>
+                    <img src="images/logo/logo.png" alt="Remedy Dental Clinic Logo" class="logo-img">
                 </div>
                 <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
@@ -91,7 +90,26 @@
                     </ul>
                 </div>
                 <div class="about-image">
-                    <img src="images/about.jpeg" alt="Remedy Dental Clinic" class="about-img">
+                    <div class="about-carousel">
+                        <div class="carousel-slide active fade">
+                            <img src="images/main/photo_1_2026-01-18_20-55-06.jpg" alt="Clinic Image 1" class="about-img">
+                        </div>
+                        <div class="carousel-slide fade">
+                            <img src="images/main/photo_2_2026-01-18_20-55-06.jpg" alt="Clinic Image 2" class="about-img">
+                        </div>
+                        <div class="carousel-slide fade">
+                            <img src="images/main/photo_3_2026-01-18_20-55-06.jpg" alt="Clinic Image 3" class="about-img">
+                        </div>
+                        <div class="carousel-slide fade">
+                            <img src="images/main/photo_4_2026-01-18_20-55-06.jpg" alt="Clinic Image 4" class="about-img">
+                        </div>
+                        <div class="carousel-slide fade">
+                            <img src="images/main/photo_5_2026-01-18_20-55-06.jpg" alt="Clinic Image 5" class="about-img">
+                        </div>
+                        <div class="carousel-slide fade">
+                            <img src="images/main/photo_6_2026-01-18_20-55-06.jpg" alt="Clinic Image 6" class="about-img">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -158,43 +176,26 @@
                 <h2>Our Portfolio</h2>
                 <p>Before & After Transformations</p>
             </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="placeholder-large">
-                            <span>Smile Makeover 1</span>
-                        </div>
+            
+            <div class="slideshow-container">
+                <div class="carousel-window">
+                    <div class="carousel-track" id="track">
+                        <div class="slide"><img src="images/before_after/photo_1_2026-01-18_17-15-48.jpg" alt="1"></div>
+                        <div class="slide"><img src="images/before_after/photo_2_2026-01-18_17-15-48.jpg" alt="2"></div>
+                        <div class="slide"><img src="images/before_after/photo_3_2026-01-18_17-15-48.jpg" alt="3"></div>
+                        <div class="slide"><img src="images/before_after/photo_4_2026-01-18_17-15-48.jpg" alt="4"></div>
+                        <div class="slide"><img src="images/before_after/photo_5_2026-01-18_17-15-48.jpg" alt="5"></div>
+                        <div class="slide"><img src="images/before_after/photo_6_2026-01-18_17-15-48.jpg" alt="6"></div>
+                        <div class="slide"><img src="images/before_after/photo_7_2026-01-18_17-15-48.jpg" alt="7"></div>
+                        <div class="slide"><img src="images/before_after/photo_8_2026-01-18_17-15-48.jpg" alt="8"></div>
+                        <div class="slide"><img src="images/before_after/photo_9_2026-01-18_17-15-48.jpg" alt="9"></div>
+                        <div class="slide"><img src="images/before_after/photo_10_2026-01-18_17-15-48.jpg" alt="10"></div>
+                        <div class="slide"><img src="images/before_after/photo_11_2026-01-18_17-15-48.jpg" alt="11"></div>
                     </div>
-                    <h3>Complete Smile Restoration</h3>
-                    <p>Full mouth restoration using crowns and whitening.</p>
                 </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="placeholder-large">
-                            <span>Smile Makeover 2</span>
-                        </div>
-                    </div>
-                    <h3>Cosmetic Enhancement</h3>
-                    <p>Veneers and professional whitening for radiant smile.</p>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="placeholder-large">
-                            <span>Smile Makeover 3</span>
-                        </div>
-                    </div>
-                    <h3>Implant Placement</h3>
-                    <p>Permanent tooth replacement with natural appearance.</p>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="placeholder-large">
-                            <span>Smile Makeover 4</span>
-                        </div>
-                    </div>
-                    <h3>Orthodontic Correction</h3>
-                    <p>Alignment and bite correction for healthier teeth.</p>
-                </div>
+
+                <a class="prev" onclick="moveSlide(-1)">❮</a>
+                <a class="next" onclick="moveSlide(1)">❯</a>
             </div>
         </div>
     </section>
