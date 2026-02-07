@@ -350,43 +350,49 @@ window.clearAllEnquiries = clearAllEnquiries;
 let isTransitioning = false;
 
 function moveSlide(direction) {
-    if (isTransitioning) return; // Prevent clicking too fast
+    if (isTransitioning) return;
     isTransitioning = true;
 
     const track = document.getElementById('track');
+    // Safety check if track exists
+    if (!track || track.children.length === 0) {
+        isTransitioning = false;
+        return;
+    }
+
     const slides = Array.from(track.children);
-    const gap = 20; // Must match CSS gap
+    // 20px gap defined in CSS
+    const gap = 20; 
+    // Dynamically calculate width based on current screen size (Desktop vs Mobile)
     const slideWidth = slides[0].getBoundingClientRect().width + gap;
 
     if (direction === 1) {
         // MOVING FORWARD (Right)
-        // 1. Slide the track to the left
         track.style.transition = 'transform 0.5s ease-in-out';
         track.style.transform = `translateX(-${slideWidth}px)`;
 
-        // 2. After animation, move the first item to the end and reset
         setTimeout(() => {
-            track.style.transition = 'none'; // Disable animation for instant swap
-            track.appendChild(track.firstElementChild); // Move first item to the back
-            track.style.transform = 'translateX(0)'; // Reset position
+            track.style.transition = 'none';
+            track.appendChild(track.firstElementChild);
+            track.style.transform = 'translateX(0)';
             isTransitioning = false;
-        }, 500); // 500ms matches the CSS transition time
+        }, 500);
 
     } else {
         // MOVING BACKWARD (Left)
-        // 1. Move last item to front INSTANTLY (offset by negative width)
         track.style.transition = 'none';
         track.prepend(track.lastElementChild);
+        // Move track to left immediately to show the prepended item
         track.style.transform = `translateX(-${slideWidth}px)`;
 
-        // 2. Force a tiny delay so the browser registers the position change
+        // Small delay to allow browser to render the position change before animating
         setTimeout(() => {
             track.style.transition = 'transform 0.5s ease-in-out';
-            track.style.transform = 'translateX(0)'; // Slide into view
+            track.style.transform = 'translateX(0)';
             setTimeout(() => {
                 isTransitioning = false;
             }, 500);
-        }, 10);
+        }, 50);
     }
 }
 
