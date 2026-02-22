@@ -6,11 +6,11 @@
 }
 
 :root {
-    --primary-color: #00897b;   
-    --secondary-color: #005b96; 
-    --accent-color: #4db6ac;    
+    --primary-color: #00897b;
+    --secondary-color: #005b96;
+    --accent-color: #4db6ac;
     --text-color: #333;
-    --light-bg: #f0fdfc;        
+    --light-bg: #f0fdfc;
     --white: #ffffff;
     --dark-bg: #1a1a2e;
     --border-radius: 10px;
@@ -20,14 +20,16 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px; /* Offset for sticky header */
+    scroll-padding-top: 100px;
+    /* Offset for sticky header */
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-color);
     line-height: 1.6;
-    overflow-x: hidden; /* Prevents horizontal scrollbar */
+    overflow-x: hidden;
+    /* Prevents horizontal scrollbar */
     width: 100%;
 }
 
@@ -54,14 +56,16 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    height: 100px; /* Standardized height */
+    height: 100px;
+    /* Standardized height */
 }
 
 .logo {
     display: flex;
     align-items: center;
     height: 100%;
-    z-index: 1001; /* Keep logo above mobile menu */
+    z-index: 1001;
+    /* Keep logo above mobile menu */
 }
 
 .logo-img {
@@ -146,7 +150,8 @@ body {
 .btn {
     padding: 12px 30px;
     border: none;
-    border-radius: 30px; /* Pill shape looks more modern */
+    border-radius: 30px;
+    /* Pill shape looks more modern */
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
@@ -159,7 +164,7 @@ body {
 .btn-primary {
     background-color: var(--white);
     color: var(--primary-color);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:hover {
@@ -241,7 +246,8 @@ section {
 
 .about-carousel {
     width: 100%;
-    height: 400px; /* Fixed height for consistency */
+    height: 400px;
+    /* Fixed height for consistency */
     position: relative;
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -268,9 +274,15 @@ section {
 .carousel-slide.fade {
     animation: fadeEffect 1s ease-in-out;
 }
+
 @keyframes fadeEffect {
-    from { opacity: 0.5; }
-    to { opacity: 1; }
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* ==================== SERVICES SECTION ==================== */
@@ -289,7 +301,7 @@ section {
     text-align: center;
     transition: var(--transition);
     border: 1px solid #eee;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .service-card:hover {
@@ -314,14 +326,16 @@ section {
 /* ==================== PORTFOLIO (INFINITE CAROUSEL) ==================== */
 .portfolio {
     background-color: var(--white);
-    overflow: hidden; /* Contains the arrows */
+    overflow: hidden;
+    /* Contains the arrows */
 }
 
 .slideshow-container {
     max-width: 1000px;
     position: relative;
     margin: 0 auto;
-    padding: 0 40px; /* Space for arrows on desktop */
+    padding: 0 40px;
+    /* Space for arrows on desktop */
 }
 
 .carousel-window {
@@ -333,17 +347,19 @@ section {
 .carousel-track {
     display: flex;
     gap: 20px;
-    width: max-content; /* Allow track to grow */
+    width: max-content;
+    /* Allow track to grow */
 }
 
 .slide {
     /* Desktop: 3 items visible. 100% / 3 = 33.33% */
-    width: 300px; /* Fixed width base for desktop calculation */
+    width: 300px;
+    /* Fixed width base for desktop calculation */
     height: 250px;
     flex-shrink: 0;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .slide img {
@@ -358,7 +374,8 @@ section {
 }
 
 /* Navigation Buttons */
-.prev, .next {
+.prev,
+.next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -375,13 +392,19 @@ section {
     justify-content: center;
     user-select: none;
     z-index: 10;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.prev { left: 0; }
-.next { right: 0; }
+.prev {
+    left: 0;
+}
 
-.prev:hover, .next:hover {
+.next {
+    right: 0;
+}
+
+.prev:hover,
+.next:hover {
     background-color: var(--secondary-color);
 }
 
@@ -434,7 +457,7 @@ section {
     gap: 15px;
 }
 
-.form-group input, 
+.form-group input,
 .form-group textarea {
     width: 100%;
     padding: 12px;
@@ -495,7 +518,7 @@ section {
 .social-links a {
     width: 35px;
     height: 35px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -508,7 +531,7 @@ section {
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 20px;
     text-align: center;
     font-size: 0.9rem;
@@ -523,7 +546,7 @@ section {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -559,21 +582,23 @@ section {
     .nav-wrapper {
         height: 80px;
     }
-    
+
     .hero-content h1 {
         font-size: 2.5rem;
     }
-    
+
     .about-content {
-        grid-template-columns: 1fr; /* Stack about section */
+        grid-template-columns: 1fr;
+        /* Stack about section */
     }
-    
+
     .about-carousel {
         height: 350px;
     }
 }
 
 @media screen and (max-width: 768px) {
+
     /* Navbar Mobile */
     .hamburger {
         display: flex;
@@ -581,14 +606,15 @@ section {
 
     .nav-menu {
         position: fixed;
-        top: 80px; /* Matches nav-wrapper height */
+        top: 80px;
+        /* Matches nav-wrapper height */
         left: -100%;
         width: 100%;
         background-color: var(--white);
         flex-direction: column;
         align-items: center;
         padding: 30px 0;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
         transition: 0.4s ease-in-out;
         gap: 25px;
         height: auto;
@@ -606,41 +632,62 @@ section {
     .hero-content h1 {
         font-size: 2rem;
     }
-    
+
     .hero-content p {
         font-size: 1.1rem;
     }
 
     /* Portfolio Mobile */
-    .slide {
-        /* On mobile, 1 slide takes full width */
-        width: 100% !important; 
-        min-width: 100% !important; 
-    }
-    
     .slideshow-container {
-        padding: 0; /* Remove side padding on mobile */
+        padding: 0 40px;
+        /* Keep space for arrows */
     }
-    
-    .prev, .next {
+
+    .carousel-window {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .carousel-track {
+        gap: 0;
+        /* No gap on mobile so single-slide view works */
+    }
+
+    .slide {
+        /* Use viewport-relative width minus arrow space instead of %, 
+           since parent is width:max-content and % won't resolve correctly */
+        width: calc(100vw - 120px) !important;
+        min-width: calc(100vw - 120px) !important;
+        height: 220px;
+    }
+
+    .prev,
+    .next {
         width: 35px;
         height: 35px;
-        background-color: rgba(0, 137, 123, 0.8); /* Semi-transparent */
+        background-color: rgba(0, 137, 123, 0.8);
+        /* Semi-transparent */
     }
-    
-    .prev { left: 10px; }
-    .next { right: 10px; }
+
+    .prev {
+        left: 5px;
+    }
+
+    .next {
+        right: 5px;
+    }
 
     /* Contact Mobile */
     .contact-content {
         grid-template-columns: 1fr;
     }
-    
+
     .enquiry-form {
-        order: 1; /* Form first */
+        order: 1;
+        /* Form first */
         padding: 20px;
     }
-    
+
     .contact-info {
         order: 2;
     }
@@ -650,11 +697,11 @@ section {
     .nav-wrapper {
         height: 70px;
     }
-    
+
     .nav-menu {
         top: 70px;
     }
-    
+
     .logo-img {
         max-height: 50px;
     }
@@ -671,13 +718,24 @@ section {
     .btn {
         width: 100%;
     }
-    
+
     .about-carousel {
         height: 250px;
     }
-    
+
     /* Ensure Services Grid Cards don't overflow */
     .services-grid {
-        grid-template-columns: 1fr; /* Single column on very small screens */
+        grid-template-columns: 1fr;
+        /* Single column on very small screens */
+    }
+
+    .slideshow-container {
+        padding: 0 35px;
+    }
+
+    .slide {
+        width: calc(100vw - 110px) !important;
+        min-width: calc(100vw - 110px) !important;
+        height: 200px;
     }
 }

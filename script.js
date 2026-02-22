@@ -3,12 +3,12 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebas
 import { getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot, query, orderBy, getDocs } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAu7QlhcoOk4nHbLhb1oGfTAsYXQU56QZM",
-  authDomain: "remedy-dental.firebaseapp.com",
-  projectId: "remedy-dental",
-  storageBucket: "remedy-dental.firebasestorage.app",
-  messagingSenderId: "1026621034867",
-  appId: "1:1026621034867:web:6c795b3a91c24f21ea7506"
+    apiKey: "AIzaSyAu7QlhcoOk4nHbLhb1oGfTAsYXQU56QZM",
+    authDomain: "remedy-dental.firebaseapp.com",
+    projectId: "remedy-dental",
+    storageBucket: "remedy-dental.firebasestorage.app",
+    messagingSenderId: "1026621034867",
+    appId: "1:1026621034867:web:6c795b3a91c24f21ea7506"
 };
 
 // Initialize Firebase
@@ -19,7 +19,7 @@ console.log('Firebase initialized successfully!');
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // Mobile Menu Toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
@@ -79,10 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize tooltips for service cards
     document.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('mouseenter', function() {
+        card.addEventListener('mouseenter', function () {
             this.style.backgroundColor = '#e8f4ff';
         });
-        card.addEventListener('mouseleave', function() {
+        card.addEventListener('mouseleave', function () {
             this.style.backgroundColor = '#f5f7fa';
         });
     });
@@ -90,20 +90,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle enquiry form submission
     const enquiryForm = document.getElementById('enquiryForm');
     if (enquiryForm) {
-        enquiryForm.addEventListener('submit', async function(e) {
+        enquiryForm.addEventListener('submit', async function (e) {
             e.preventDefault();
-            
+
             const name = document.getElementById('enquiryName').value;
             const phone = document.getElementById('enquiryPhone').value;
             const message = document.getElementById('enquiryMessage').value;
-            
+
             const submitBtn = document.querySelector('#enquiryForm button[type="submit"]');
             const formMessage = document.getElementById('formMessage');
-            
+
             try {
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Sending...';
-                
+
                 // Add enquiry to Firestore
                 const docRef = await addDoc(collection(db, 'enquiries'), {
                     name: name,
@@ -112,17 +112,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     timestamp: new Date().toLocaleString(),
                     createdAt: new Date()
                 });
-                
+
                 // Show success message
                 formMessage.textContent = 'Thank you! Your enquiry has been sent successfully. We will contact you soon.';
                 formMessage.style.color = 'green';
                 formMessage.style.display = 'block';
-                
+
                 // Reset form
                 enquiryForm.reset();
                 submitBtn.textContent = 'Send Enquiry';
                 submitBtn.disabled = false;
-                
+
                 // Hide message after 5 seconds
                 setTimeout(() => {
                     formMessage.style.display = 'none';
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Close modal when clicking outside
-    window.addEventListener('click', function(event) {
+    window.addEventListener('click', function (event) {
         const modal = document.getElementById('adminInboxModal');
         if (modal && event.target === modal) {
             closeAdminInbox();
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // About Carousel Auto-slide
     let aboutCarouselIndex = 0;
-    
+
     function showCarouselSlide() {
         const slides = document.querySelectorAll('.about-carousel .carousel-slide');
         if (slides.length === 0) return;
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         slides[aboutCarouselIndex - 1].classList.add('active');
 
         // Repeat every 3 seconds
-        setTimeout(showCarouselSlide, 3000); 
+        setTimeout(showCarouselSlide, 3000);
     }
 
     // Start the carousel
@@ -190,15 +190,15 @@ document.addEventListener('DOMContentLoaded', () => {
 function openAdminInbox() {
     const passwordModal = document.getElementById('passwordModal');
     const passwordInput = document.getElementById('adminPassword');
-    
+
     // Show password modal
     passwordModal.style.display = 'flex';
-    
+
     // Focus on password input
     setTimeout(() => passwordInput.focus(), 100);
-    
+
     // Allow Enter key to submit
-    passwordInput.onkeypress = function(e) {
+    passwordInput.onkeypress = function (e) {
         if (e.key === 'Enter') {
             submitPassword();
         }
@@ -222,7 +222,7 @@ function closePasswordModal() {
 function submitPassword() {
     const passwordInput = document.getElementById('adminPassword');
     const password = passwordInput.value;
-    
+
     if (password === 'admin123') {
         closePasswordModal();
         loadEnquiries();
@@ -243,7 +243,7 @@ function submitPassword() {
 function togglePasswordVisibility() {
     const passwordInput = document.getElementById('adminPassword');
     const toggleBtn = document.querySelector('.toggle-password-btn i');
-    
+
     if (passwordInput.type === 'password') {
         passwordInput.type = 'text';
         toggleBtn.classList.remove('fa-eye');
@@ -259,25 +259,25 @@ function togglePasswordVisibility() {
 function loadEnquiries() {
     const inboxList = document.getElementById('inboxList');
     const messageCount = document.getElementById('messageCount');
-    
+
     if (!inboxList) return; // Safety check
 
     const q = query(collection(db, 'enquiries'), orderBy('createdAt', 'desc'));
-    
+
     onSnapshot(q, (snapshot) => {
         messageCount.textContent = snapshot.size;
-        
+
         if (snapshot.empty) {
             inboxList.innerHTML = '<p>No enquiries yet</p>';
             return;
         }
-        
+
         inboxList.innerHTML = '';
         snapshot.forEach((doc) => {
             const enquiry = doc.data();
             const enquiryElement = document.createElement('div');
             enquiryElement.className = 'enquiry-item';
-            
+
             // Using logic to handle missing fields so the whole box doesn't disappear
             enquiryElement.innerHTML = `
                 <div class="enquiry-header">
@@ -323,11 +323,11 @@ async function clearAllEnquiries() {
         try {
             const snapshot = await getDocs(collection(db, 'enquiries'));
             const deletePromises = [];
-            
+
             snapshot.forEach((doc) => {
                 deletePromises.push(deleteDoc(doc.ref));
             });
-            
+
             await Promise.all(deletePromises);
             console.log('All enquiries cleared successfully');
         } catch (error) {
@@ -361,8 +361,8 @@ function moveSlide(direction) {
     }
 
     const slides = Array.from(track.children);
-    // 20px gap defined in CSS
-    const gap = 20; 
+    // Dynamically read the gap from CSS (desktop: 20px, mobile: 0px)
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
     // Dynamically calculate width based on current screen size (Desktop vs Mobile)
     const slideWidth = slides[0].getBoundingClientRect().width + gap;
 
@@ -403,11 +403,35 @@ let autoSlideInterval = setInterval(() => {
 
 // Pause on hover (Optional but recommended)
 const container = document.querySelector('.slideshow-container');
-if(container) {
+if (container) {
     container.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
     container.addEventListener('mouseleave', () => {
         autoSlideInterval = setInterval(() => moveSlide(1), 3000);
     });
+
+    // Touch swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    container.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        clearInterval(autoSlideInterval);
+    }, { passive: true });
+
+    container.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const swipeDistance = touchStartX - touchEndX;
+
+        if (Math.abs(swipeDistance) > 50) { // Minimum swipe distance
+            if (swipeDistance > 0) {
+                moveSlide(1);  // Swipe left = next
+            } else {
+                moveSlide(-1); // Swipe right = previous
+            }
+        }
+
+        autoSlideInterval = setInterval(() => moveSlide(1), 3000);
+    }, { passive: true });
 }
 
 // Expose to window for HTML onclick
@@ -417,7 +441,7 @@ window.moveSlide = moveSlide;
 function initAboutCarousel() {
     const slides = document.querySelectorAll('.carousel-slide');
     if (slides.length === 0) return;
-    
+
     showCarouselSlide(0);
     startCarousel();
 }
@@ -425,18 +449,18 @@ function initAboutCarousel() {
 function showCarouselSlide(n) {
     const slides = document.querySelectorAll('.carousel-slide');
     if (slides.length === 0) return;
-    
+
     if (n >= slides.length) {
         carouselIndex = 0;
     }
     if (n < 0) {
         carouselIndex = slides.length - 1;
     }
-    
+
     slides.forEach(slide => {
         slide.classList.remove('active');
     });
-    
+
     slides[carouselIndex].classList.add('active');
 }
 
