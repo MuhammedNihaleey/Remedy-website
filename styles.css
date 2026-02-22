@@ -139,6 +139,13 @@ body {
     opacity: 0.95;
 }
 
+.brand-name {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
 .hero-buttons {
     display: flex;
     gap: 1.5rem;
