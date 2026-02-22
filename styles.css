@@ -5,6 +5,13 @@
     box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
 :root {
     --primary-color: #00897b;
     --secondary-color: #005b96;
@@ -84,6 +91,7 @@ body {
 .nav-menu a {
     text-decoration: none;
     color: var(--text-color);
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 500;
     transition: var(--transition);
     position: relative;
@@ -127,16 +135,22 @@ body {
 }
 
 .hero-content h1 {
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 3rem;
     margin-bottom: 1.5rem;
     font-weight: 700;
     line-height: 1.2;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .hero-content p {
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 1.3rem;
     margin-bottom: 2.5rem;
     opacity: 0.95;
+    letter-spacing: 1px;
+    font-weight: 600;
 }
 
 .brand-name {
