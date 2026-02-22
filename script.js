@@ -348,6 +348,20 @@ window.clearAllEnquiries = clearAllEnquiries;
 // ==================== SLIDESHOW FUNCTIONS ====================
 // ==================== INFINITE CAROUSEL FUNCTIONS ====================
 let isTransitioning = false;
+const SLIDE_INTERVAL_MS = 3000; // Consistent 3-second interval everywhere
+const SLIDE_ANIMATION_MS = 500; // CSS transition duration
+
+function startAutoSlide() {
+    // Always clear any existing interval before starting a new one
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(() => {
+        moveSlide(1);
+    }, SLIDE_INTERVAL_MS);
+}
+
+function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+}
 
 function moveSlide(direction) {
     if (isTransitioning) return;
@@ -368,7 +382,7 @@ function moveSlide(direction) {
 
     if (direction === 1) {
         // MOVING FORWARD (Right)
-        track.style.transition = 'transform 0.5s ease-in-out';
+        track.style.transition = `transform ${SLIDE_ANIMATION_MS}ms ease-in-out`;
         track.style.transform = `translateX(-${slideWidth}px)`;
 
         setTimeout(() => {
@@ -376,7 +390,7 @@ function moveSlide(direction) {
             track.appendChild(track.firstElementChild);
             track.style.transform = 'translateX(0)';
             isTransitioning = false;
-        }, 500);
+        }, SLIDE_ANIMATION_MS);
 
     } else {
         // MOVING BACKWARD (Left)
@@ -386,28 +400,37 @@ function moveSlide(direction) {
         track.style.transform = `translateX(-${slideWidth}px)`;
 
         // Small delay to allow browser to render the position change before animating
-        setTimeout(() => {
-            track.style.transition = 'transform 0.5s ease-in-out';
-            track.style.transform = 'translateX(0)';
-            setTimeout(() => {
-                isTransitioning = false;
-            }, 500);
-        }, 50);
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                track.style.transition = `transform ${SLIDE_ANIMATION_MS}ms ease-in-out`;
+                track.style.transform = 'translateX(0)';
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, SLIDE_ANIMATION_MS);
+            });
+        });
     }
 }
 
-// Auto-slide every 3 seconds
-let autoSlideInterval = setInterval(() => {
-    moveSlide(1);
-}, 1000);
+// Safety: if the page loses visibility (tab switched), reset the lock so carousel doesn't freeze
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        isTransitioning = false; // Reset lock in case it got stuck
+        startAutoSlide();        // Restart with a fresh interval
+    } else {
+        stopAutoSlide();         // Don't waste cycles in background
+    }
+});
 
-// Pause on hover (Optional but recommended)
+// Auto-slide every 3 seconds (consistent timing)
+let autoSlideInterval;
+startAutoSlide();
+
+// Pause on hover / resume on leave
 const container = document.querySelector('.slideshow-container');
 if (container) {
-    container.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-    container.addEventListener('mouseleave', () => {
-        autoSlideInterval = setInterval(() => moveSlide(1), 3000);
-    });
+    container.addEventListener('mouseenter', stopAutoSlide);
+    container.addEventListener('mouseleave', startAutoSlide);
 
     // Touch swipe support for mobile
     let touchStartX = 0;
@@ -415,7 +438,7 @@ if (container) {
 
     container.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
-        clearInterval(autoSlideInterval);
+        stopAutoSlide();
     }, { passive: true });
 
     container.addEventListener('touchend', (e) => {
@@ -430,7 +453,7 @@ if (container) {
             }
         }
 
-        autoSlideInterval = setInterval(() => moveSlide(1), 3000);
+        startAutoSlide();
     }, { passive: true });
 }
 
