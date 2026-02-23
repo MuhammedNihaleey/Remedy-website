@@ -4,12 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remedy Dental Clinic - Quality & Long-Lasting Services</title>
+    <title>Remedy Dental Clinic - Quality & Long-Lasting Dental Services</title>
+    <meta name="description"
+        content="Remedy Dental Clinic offers quality, long-lasting dental services including general dentistry, cosmetic dentistry, crowns, bridges, implants, orthodontics, and root canal treatment. Book your appointment today.">
+    <meta name="keywords"
+        content="dental clinic, dentist, dental care, teeth whitening, dental implants, orthodontics, root canal, cosmetic dentistry, crowns, bridges, Remedy Dental Clinic">
+    <meta name="author" content="Remedy Dental Clinic">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://remedycliniq.com/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo/logo.png">
+    <link rel="apple-touch-icon" href="images/logo/logo.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://remedycliniq.com/">
+    <meta property="og:title" content="Remedy Dental Clinic - Quality & Long-Lasting Dental Services">
+    <meta property="og:description"
+        content="Experience quality dentistry with long-lasting results. General dentistry, cosmetic dentistry, implants, orthodontics and more.">
+    <meta property="og:image" content="https://remedycliniq.com/images/logo/logo.png">
+    <meta property="og:site_name" content="Remedy Dental Clinic">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Remedy Dental Clinic - Quality & Long-Lasting Dental Services">
+    <meta name="twitter:description"
+        content="Experience quality dentistry with long-lasting results. Book your appointment today.">
+    <meta name="twitter:image" content="https://remedycliniq.com/images/logo/logo.png">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Structured Data - Local Business -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Dentist",
+        "name": "Remedy Dental Clinic",
+        "url": "https://remedycliniq.com",
+        "logo": "https://remedycliniq.com/images/logo/logo.png",
+        "image": "https://remedycliniq.com/images/logo/logo.png",
+        "telephone": ["+917025669944", "+919633669944"],
+        "email": "remedyclinic70@gmail.com",
+        "openingHours": "Mo-Sa 09:00-19:00",
+        "sameAs": [
+            "https://www.facebook.com/share/1DoHvsH1DW/",
+            "https://instagram.com/remedyhci"
+        ],
+        "priceRange": "$$",
+        "description": "Remedy Dental Clinic offers quality, long-lasting dental services including general dentistry, cosmetic dentistry, crowns, bridges, implants, orthodontics, and root canal treatment.",
+        "hasMap": "https://maps.app.goo.gl/xHNHiS5xbEfcxUNE9",
+        "medicalSpecialty": "Dentistry"
+    }
+    </script>
+
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
@@ -17,316 +70,358 @@
 
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <img src="images/logo/logo.png" alt="Remedy Dental Clinic Logo" class="logo-img">
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#" onclick="openAdminInbox(); return false;"><i class="fas fa-inbox"></i> Admin
-                            Inbox</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Welcome to <span class="brand-name">Remedy</span> Dental Clinic</h1>
-            <p>Experience Quality Dentistry with Long-Lasting Results</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary"
-                    onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-                    Book Appointment
-                </button>
-                <button class="btn btn-secondary"
-                    onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
-                    Our Services
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>About Our Clinic</h2>
-                <p>Committed to Excellence in Dental Care</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Why Choose Remedy Dental Clinic?</h3>
-                    <p>
-                        At Remedy Dental Clinic, we believe that quality dental care should be accessible to everyone.
-                        Our state-of-the-art facilities and experienced team are dedicated to providing you with the
-                        highest standard of treatment and care.
-                    </p>
-                    <ul class="about-features">
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Modern Equipment & Technology</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Expert & Experienced Team</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Patient-Centered Approach</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Long-Lasting Results</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Affordable Pricing</span>
-                        </li>
+    <header>
+        <nav class="navbar" aria-label="Main Navigation">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <a href="#home" aria-label="Remedy Dental Clinic - Home">
+                            <img src="images/logo/logo.png" alt="Remedy Dental Clinic Logo" class="logo-img" width="120"
+                                height="80">
+                        </a>
+                    </div>
+                    <ul class="nav-menu" role="menubar">
+                        <li role="none"><a href="#home" role="menuitem">Home</a></li>
+                        <li role="none"><a href="#about" role="menuitem">About</a></li>
+                        <li role="none"><a href="#services" role="menuitem">Services</a></li>
+                        <li role="none"><a href="#portfolio" role="menuitem">Portfolio</a></li>
+                        <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+                        <li role="none"><a href="#" onclick="openAdminInbox(); return false;" role="menuitem"><i
+                                    class="fas fa-inbox" aria-hidden="true"></i> Admin Inbox</a></li>
                     </ul>
-                </div>
-                <div class="about-image">
-                    <div class="about-carousel">
-                        <div class="carousel-slide active fade">
-                            <img src="images/main/photo_1_2026-01-18_20-55-06.jpg" alt="Clinic Image 1"
-                                class="about-img">
-                        </div>
-                        <div class="carousel-slide fade">
-                            <img src="images/main/photo_2_2026-01-18_20-55-06.jpg" alt="Clinic Image 2"
-                                class="about-img">
-                        </div>
-                        <div class="carousel-slide fade">
-                            <img src="images/main/photo_3_2026-01-18_20-55-06.jpg" alt="Clinic Image 3"
-                                class="about-img">
-                        </div>
-                        <div class="carousel-slide fade">
-                            <img src="images/main/photo_4_2026-01-18_20-55-06.jpg" alt="Clinic Image 4"
-                                class="about-img">
-                        </div>
-                        <div class="carousel-slide fade">
-                            <img src="images/main/photo_5_2026-01-18_20-55-06.jpg" alt="Clinic Image 5"
-                                class="about-img">
-                        </div>
-                        <div class="carousel-slide fade">
-                            <img src="images/main/photo_6_2026-01-18_20-55-06.jpg" alt="Clinic Image 6"
-                                class="about-img">
-                        </div>
+                    <div class="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </nav>
+    </header>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Services</h2>
-                <p>Comprehensive Dental Care Solutions</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-smile"></i>
-                    </div>
-                    <h3>General Dentistry</h3>
-                    <p>Regular check-ups, cleanings, fillings, and preventive care to maintain your oral health.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tooth"></i>
-                    </div>
-                    <h3>Cosmetic Dentistry</h3>
-                    <p>Teeth whitening, veneers, and smile makeovers to enhance your natural smile.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <h3>Crowns & Bridges</h3>
-                    <p>Durable and natural-looking restorations for damaged or missing teeth.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-puzzle-piece"></i>
-                    </div>
-                    <h3>Implants</h3>
-                    <p>Permanent tooth replacement solutions that look and feel natural.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-align-justify"></i>
-                    </div>
-                    <h3>Orthodontics</h3>
-                    <p>Braces and aligners for a straighter, healthier smile.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-syringe"></i>
-                    </div>
-                    <h3>Root Canal Treatment</h3>
-                    <p>Advanced endodontic care to save your natural teeth.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Portfolio</h2>
-                <p>Before & After Transformations</p>
-            </div>
-
-            <div class="slideshow-container">
-                <div class="carousel-window">
-                    <div class="carousel-track" id="track">
-                        <div class="slide"><img src="images/before_after/img1.jpg" alt="1"></div>
-                        <div class="slide"><img src="images/before_after/img2.jpg" alt="2"></div>
-                        <div class="slide"><img src="images/before_after/img3.jpg" alt="3"></div>
-                        <div class="slide"><img src="images/before_after/img4.jpg" alt="4"></div>
-                        <div class="slide"><img src="images/before_after/img5.jpg" alt="5"></div>
-                        <div class="slide"><img src="images/before_after/img6.jpg" alt="6"></div>
-                        <div class="slide"><img src="images/before_after/img7.jpg" alt="7"></div>
-                        <div class="slide"><img src="images/before_after/img8.jpg" alt="8"></div>
-                        <div class="slide"><img src="images/before_after/img9.jpg" alt="9"></div>
-                        <div class="slide"><img src="images/before_after/img10.jpg" alt="10"></div>
-                        <div class="slide"><img src="images/before_after/img11.jpg" alt="11"></div>
-                    </div>
-                </div>
-
-                <a class="prev" onclick="moveSlide(-1)">❮</a>
-                <a class="next" onclick="moveSlide(1)">❯</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Get In Touch</h2>
-                <p>We'd Love to Hear From You</p>
-            </div>
-            <div class="contact-content">
-                <div class="enquiry-form">
-                    <h3>Send Us An Enquiry</h3>
-                    <form id="enquiryForm" class="form-group">
-                        <input type="text" id="enquiryName" placeholder="Your Name" required>
-                        <input type="tel" id="enquiryPhone" placeholder="Your Mobile Number" required>
-                        <textarea id="enquiryMessage" placeholder="Your Message" rows="5" required></textarea>
-                        <button type="submit" class="btn btn-primary">Send Enquiry</button>
-                        <p id="formMessage" class="form-message"></p>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h3>Location</h3>
-                            <p><a href="https://maps.app.goo.gl/xHNHiS5xbEfcxUNE9" target="_blank">View on Google
-                                    Maps</a></p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h3>Phone</h3>
-                            <p><a href="tel:+917025669944">+91 7025669944</a><br><a href="tel:+919633669944">+91
-                                    9633669944</a></p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div>
-                            <h3>WhatsApp</h3>
-                            <p><a href="https://wa.me/917025669944" target="_blank" class="whatsapp-btn"><i
-                                        class="fab fa-whatsapp"></i> Chat on WhatsApp</a></p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h3>Email</h3>
-                            <p>remedyclinic70@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div>
-                            <h3>Business Hours</h3>
-                            <p>Monday - Saturday: 9:00 AM - 7:00 PM<br>Sunday: Closed</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Password Modal -->
-    <div id="passwordModal" class="modal">
-        <div class="modal-content password-modal-content">
-            <div class="modal-header">
-                <h2><i class="fas fa-lock"></i> Admin Access</h2>
-                <button class="close-btn" onclick="closePasswordModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p class="password-modal-text">Enter the admin password to access the inbox</p>
-                <div class="password-input-group">
-                    <input type="password" id="adminPassword" placeholder="Enter password" class="password-input">
-                    <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility()">
-                        <i class="fas fa-eye"></i>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Welcome to <span class="brand-name">Remedy</span> Dental Clinic</h1>
+                <p>Experience Quality Dentistry with Long-Lasting Results</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary"
+                        onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                        Book Appointment
+                    </button>
+                    <button class="btn btn-secondary"
+                        onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
+                        Our Services
                     </button>
                 </div>
-                <div class="password-modal-actions">
-                    <button class="btn btn-primary" onclick="submitPassword()">Login</button>
-                    <button class="btn btn-secondary" onclick="closePasswordModal()">Cancel</button>
-                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Admin Inbox Modal -->
-    <div id="adminInboxModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Admin Inbox</h2>
-                <button class="close-btn" onclick="closeAdminInbox()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="inbox-actions">
-                    <button class="btn btn-secondary" onclick="clearAllEnquiries()">Clear All Messages</button>
-                    <span class="message-count">Total Messages: <strong id="messageCount">0</strong></span>
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>About Our Clinic</h2>
+                    <p>Committed to Excellence in Dental Care</p>
                 </div>
-                <div id="inboxList" class="inbox-list">
-                    <p>No enquiries yet</p>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Why Choose Remedy Dental Clinic?</h3>
+                        <p>
+                            At Remedy Dental Clinic, we believe that quality dental care should be accessible to
+                            everyone.
+                            Our state-of-the-art facilities and experienced team are dedicated to providing you with the
+                            highest standard of treatment and care.
+                        </p>
+                        <ul class="about-features">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Modern Equipment & Technology</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Expert & Experienced Team</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Patient-Centered Approach</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Long-Lasting Results</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Affordable Pricing</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <div class="about-carousel">
+                            <div class="carousel-slide active fade">
+                                <img src="images/main/photo_1_2026-01-18_20-55-06.jpg"
+                                    alt="Remedy Dental Clinic modern treatment room with advanced dental equipment"
+                                    class="about-img" loading="lazy">
+                            </div>
+                            <div class="carousel-slide fade">
+                                <img src="images/main/photo_2_2026-01-18_20-55-06.jpg"
+                                    alt="Remedy Dental Clinic reception area with comfortable seating" class="about-img"
+                                    loading="lazy">
+                            </div>
+                            <div class="carousel-slide fade">
+                                <img src="images/main/photo_3_2026-01-18_20-55-06.jpg"
+                                    alt="Dental care equipment and sterilization setup at Remedy Clinic"
+                                    class="about-img" loading="lazy">
+                            </div>
+                            <div class="carousel-slide fade">
+                                <img src="images/main/photo_4_2026-01-18_20-55-06.jpg"
+                                    alt="Remedy Dental Clinic interior showcasing patient-friendly environment"
+                                    class="about-img" loading="lazy">
+                            </div>
+                            <div class="carousel-slide fade">
+                                <img src="images/main/photo_5_2026-01-18_20-55-06.jpg"
+                                    alt="Advanced dental technology used at Remedy Dental Clinic" class="about-img"
+                                    loading="lazy">
+                            </div>
+                            <div class="carousel-slide fade">
+                                <img src="images/main/photo_6_2026-01-18_20-55-06.jpg"
+                                    alt="Remedy Dental Clinic team providing quality dental care" class="about-img"
+                                    loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Services</h2>
+                    <p>Comprehensive Dental Care Solutions</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <h3>General Dentistry</h3>
+                        <p>Regular check-ups, cleanings, fillings, and preventive care to maintain your oral health.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <h3>Cosmetic Dentistry</h3>
+                        <p>Teeth whitening, veneers, and smile makeovers to enhance your natural smile.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Crowns & Bridges</h3>
+                        <p>Durable and natural-looking restorations for damaged or missing teeth.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>Implants</h3>
+                        <p>Permanent tooth replacement solutions that look and feel natural.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-align-justify"></i>
+                        </div>
+                        <h3>Orthodontics</h3>
+                        <p>Braces and aligners for a straighter, healthier smile.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-syringe"></i>
+                        </div>
+                        <h3>Root Canal Treatment</h3>
+                        <p>Advanced endodontic care to save your natural teeth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Portfolio</h2>
+                    <p>Before & After Transformations</p>
+                </div>
+
+                <div class="slideshow-container">
+                    <div class="carousel-window">
+                        <div class="carousel-track" id="track">
+                            <div class="slide"><img src="images/before_after/img1.jpg"
+                                    alt="Dental treatment before and after result - smile transformation case 1"
+                                    loading="lazy"></div>
+                            <div class="slide"><img src="images/before_after/img2.jpg"
+                                    alt="Teeth whitening before and after result at Remedy Dental Clinic"
+                                    loading="lazy"></div>
+                            <div class="slide"><img src="images/before_after/img3.jpg"
+                                    alt="Dental restoration before and after - cosmetic dentistry case 3"
+                                    loading="lazy"></div>
+                            <div class="slide"><img src="images/before_after/img4.jpg"
+                                    alt="Smile makeover before and after result - dental transformation case 4"
+                                    loading="lazy"></div>
+                            <div class="slide"><img src="images/before_after/img5.jpg"
+                                    alt="Dental implant before and after result showing natural-looking restoration"
+                                    loading="lazy"></div>
+                            <div class="slide"><img src="images/before_after/img6.jpg"
+                                    alt="Crown and bridge before and after dental treatment result" loading="lazy">
+                            </div>
+                            <div class="slide"><img src="images/before_after/img7.jpg"
+                                    alt="Orthodontic treatment before and after - teeth alignment result"
+                                    loading="lazy"></div>
+                            <div class="slide"><img src="images/before_after/img8.jpg"
+                                    alt="Cosmetic dentistry before and after transformation case 8" loading="lazy">
+                            </div>
+                            <div class="slide"><img src="images/before_after/img9.jpg"
+                                    alt="Dental veneer before and after - smile enhancement result" loading="lazy">
+                            </div>
+                            <div class="slide"><img src="images/before_after/img10.jpg"
+                                    alt="Complete smile makeover before and after at Remedy Dental Clinic"
+                                    loading="lazy"></div>
+                            <div class="slide"><img src="images/before_after/img11.jpg"
+                                    alt="Dental care before and after results - patient transformation case 11"
+                                    loading="lazy"></div>
+                        </div>
+                    </div>
+
+                    <a class="prev" onclick="moveSlide(-1)" aria-label="Previous slide" role="button">❮</a>
+                    <a class="next" onclick="moveSlide(1)" aria-label="Next slide" role="button">❯</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <p>We'd Love to Hear From You</p>
+                </div>
+                <div class="contact-content">
+                    <div class="enquiry-form">
+                        <h3>Send Us An Enquiry</h3>
+                        <form id="enquiryForm" class="form-group">
+                            <label for="enquiryName" class="sr-only">Your Name</label>
+                            <input type="text" id="enquiryName" placeholder="Your Name" required aria-label="Your Name">
+                            <label for="enquiryPhone" class="sr-only">Your Mobile Number</label>
+                            <input type="tel" id="enquiryPhone" placeholder="Your Mobile Number" required
+                                aria-label="Your Mobile Number">
+                            <label for="enquiryMessage" class="sr-only">Your Message</label>
+                            <textarea id="enquiryMessage" placeholder="Your Message" rows="5" required
+                                aria-label="Your Message"></textarea>
+                            <button type="submit" class="btn btn-primary">Send Enquiry</button>
+                            <p id="formMessage" class="form-message"></p>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3>Location</h3>
+                                <p><a href="https://maps.app.goo.gl/xHNHiS5xbEfcxUNE9" target="_blank">View on Google
+                                        Maps</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3>Phone</h3>
+                                <p><a href="tel:+917025669944">+91 7025669944</a><br><a href="tel:+919633669944">+91
+                                        9633669944</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h3>WhatsApp</h3>
+                                <p><a href="https://wa.me/917025669944" target="_blank" class="whatsapp-btn"><i
+                                            class="fab fa-whatsapp"></i> Chat on WhatsApp</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>remedyclinic70@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3>Business Hours</h3>
+                                <p>Monday - Saturday: 9:00 AM - 7:00 PM<br>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Password Modal -->
+        <div id="passwordModal" class="modal">
+            <div class="modal-content password-modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-lock"></i> Admin Access</h2>
+                    <button class="close-btn" onclick="closePasswordModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p class="password-modal-text">Enter the admin password to access the inbox</p>
+                    <div class="password-input-group">
+                        <input type="password" id="adminPassword" placeholder="Enter password" class="password-input">
+                        <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility()">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-modal-actions">
+                        <button class="btn btn-primary" onclick="submitPassword()">Login</button>
+                        <button class="btn btn-secondary" onclick="closePasswordModal()">Cancel</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        <!-- Admin Inbox Modal -->
+        <div id="adminInboxModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Admin Inbox</h2>
+                    <button class="close-btn" onclick="closeAdminInbox()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="inbox-actions">
+                        <button class="btn btn-secondary" onclick="clearAllEnquiries()">Clear All Messages</button>
+                        <span class="message-count">Total Messages: <strong id="messageCount">0</strong></span>
+                    </div>
+                    <div id="inboxList" class="inbox-list">
+                        <p>No enquiries yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -339,21 +434,26 @@
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                    <nav aria-label="Footer Navigation">
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
                 </div>
                 <div class="footer-section">
                     <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/share/1DoHvsH1DW/" target="_blank"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="https://instagram.com/remedyhci" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/share/1DoHvsH1DW/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Follow us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-twitter"
+                                aria-hidden="true"></i></a>
+                        <a href="https://instagram.com/remedyhci" target="_blank" rel="noopener noreferrer"
+                            aria-label="Follow us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in"
+                                aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
